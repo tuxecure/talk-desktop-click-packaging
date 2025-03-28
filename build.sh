@@ -2,7 +2,7 @@
 REPO_NAME="talk-desktop"
 REPO_URL="https://github.com/tuxecure/talk-desktop"
 REPO_VERSION="1.1.5a"
-APP_TARGET="${REPO_NAME}/out/Nextcloud Talk-linux-arm64"
+APP_TARGET="${ROOT}/${REPO_NAME}/out/Nextcloud Talk-linux-arm64"
 
 SPREED_NAME="spreed"
 SPREED_URL="https://github.com/nextcloud/spreed"
