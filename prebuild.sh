@@ -1,7 +1,7 @@
 #!/bin/bash
 REPO_NAME="talk-desktop"
-REPO_URL="https://github.com/nextcloud/talk-desktop"
-REPO_VERSION="1.1.5"
+REPO_URL="https://github.com/tuxecure/talk-desktop"
+REPO_VERSION="1.1.5a"
 SPREED_NAME="spreed"
 SPREED_URL="https://github.com/nextcloud/spreed"
 SPREED_VERSION="21.0.1"
@@ -52,7 +52,7 @@ build () {
   npm audit fix
   npm ci --prefix=spreed
   npm audit fix
-  npm run build:linux
+  npm run build:linux:arm64
 }
 
 #package () {
@@ -64,7 +64,7 @@ build () {
 cleanup "${ROOT}/${REPO_NAME}"
 cleanup "${ROOT}/${REPO_NAME}/${SPREED_NAME}"
 setup_node
-clone "$ROOT/${REPO_NAME}" ${REPO_VERSION} {$REPO_URL}
+clone "$ROOT/${REPO_NAME}" ${REPO_VERSION} ${REPO_URL}
 clone "${ROOT}/${REPO_NAME}/${SPREED_NAME}" ${SPREED_VERSION} ${SPREED_URL}
 build
 #package
