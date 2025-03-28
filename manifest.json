@@ -4,7 +4,7 @@
     "architecture": "arm64",
     "title": "Nextcloud Talk",
     "hooks": {
-        "cinny": {
+        "talk": {
             "apparmor": "apparmor.json",
             "desktop":  "talk.desktop",
             "content-hub": "content-hub.json"
