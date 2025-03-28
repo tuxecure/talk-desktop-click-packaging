@@ -1,0 +1,16 @@
+{
+    "name": "talk.fuseteam",
+    "description": "Talk is a messaging app build for nextcloud",
+    "architecture": "arm64",
+    "title": "Nextcloud Talk",
+    "hooks": {
+        "cinny": {
+            "apparmor": "apparmor.json",
+            "desktop":  "talk.desktop",
+            "content-hub": "content-hub.json"
+        }
+    },
+    "version": "1.1.5-0.1",
+    "maintainer": "Rahammetoela Toekiman <fuseteam@duck.com",
+    "framework" : "ubuntu-sdk-20.04"
+}

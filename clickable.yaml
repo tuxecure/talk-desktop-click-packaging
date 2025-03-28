@@ -1,7 +1,8 @@
 clickable_minimum_required: 8.0.0
 builder: custom
-build: ${ROOT}/prebuild.sh
+framework: ubuntu-sdk-20.04
+build: ${ROOT}/build.sh
 install_root_data: 
-  - "${ROOT}/talk-desktop/out/"
+  - "${ROOT}/target"
 ignore_review_warnings: true
 skip_review: true

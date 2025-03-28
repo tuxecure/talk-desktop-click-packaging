@@ -2,9 +2,12 @@
 REPO_NAME="talk-desktop"
 REPO_URL="https://github.com/tuxecure/talk-desktop"
 REPO_VERSION="1.1.5a"
+APP_TARGET="${REPO_NAME}/out/Nextcloud Talk-linux-arm64"
+
 SPREED_NAME="spreed"
 SPREED_URL="https://github.com/nextcloud/spreed"
 SPREED_VERSION="21.0.1"
+
 NODE_VERSION="22.2.0"
 cleanup () {
   if [ -d "$1" ]; then
@@ -53,13 +56,15 @@ build () {
   npm ci --prefix=spreed
   npm audit fix
   npm run build:linux:arm64
+  popd > /dev/null # changes back to root folder
 }
 
-#package () {
-#  echo "Packaging cinny"
-#  cp -r "${APP_TARGET}" "${ROOT}/target"
-#  sed -i "s/@CLICK_VERSION@/$REPO_VERSION$CLICK_VERSION_PREFIX/g" "${ROOT}/manifest.json.in"
-#}
+package () {
+  echo "Packaging talk"
+  ls
+  cp -r "${APP_TARGET}" "${ROOT}/target"
+  sed -i "s/@CLICK_ARCH@/$ARCH/g" "${ROOT}/manifest.json"
+}
 
 cleanup "${ROOT}/${REPO_NAME}"
 cleanup "${ROOT}/${REPO_NAME}/${SPREED_NAME}"
@@ -67,4 +72,4 @@ setup_node
 clone "$ROOT/${REPO_NAME}" ${REPO_VERSION} ${REPO_URL}
 clone "${ROOT}/${REPO_NAME}/${SPREED_NAME}" ${SPREED_VERSION} ${SPREED_URL}
 build
-#package
+package
