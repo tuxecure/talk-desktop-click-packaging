@@ -1,0 +1,7 @@
+clickable_minimum_required: 8.0.0
+builder: custom
+build: ${ROOT}/prebuild.sh
+install_root_data: 
+  - "${ROOT}/talk-desktop/out/"
+ignore_review_warnings: true
+skip_review: true
