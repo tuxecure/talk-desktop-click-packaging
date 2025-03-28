@@ -64,6 +64,7 @@ package () {
   ls
   cp -r "${APP_TARGET}" "${ROOT}/target"
   sed -i "s/@CLICK_ARCH@/$ARCH/g" "${ROOT}/manifest.json"
+  cp ${ROOT}/*.json ${ROOT}/talk.desktop ${INSTALL_DIR}
 }
 
 cleanup "${ROOT}/${REPO_NAME}"
